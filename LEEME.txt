@@ -1,0 +1,35 @@
+TU WEB — LUIS BARRIOS
+=====================
+
+QUÉ HAY AQUÍ
+- index.html    → la página principal
+- aplicar.html  → el formulario de aplicación (termina en tu Calendly)
+- styles.css, main.js, funnel.js, lib/ → el diseño y las animaciones
+- assets/img/   → las imágenes
+- .htaccess     → configuración de caché para Hostinger (no lo borres)
+
+ANTES DE PUBLICAR (1 cosa obligatoria)
+1) Abre lib/manifest.js y cambia esta línea por tu enlace real de Calendly:
+   calendly: "https://calendly.com/TU-USUARIO/llamada"
+
+   Consejo: en Calendly, añade a tu evento una pregunta personalizada
+   ("Cuéntame de tu negocio"). El formulario de la web la rellena solo
+   con las respuestas del cliente (tipo de negocio, presupuesto, etc.).
+
+RECOMENDADO
+- Cuando tengas fotos tuyas profesionales, colócalas en assets/photos/source/
+  y pídeme que las integre (o reemplaza assets/img/reunion.webp).
+- Los testimonios no están incluidos a propósito: cuando tengas testimonios
+  reales de clientes, pídeme que añada la sección.
+
+CÓMO PUBLICAR EN HOSTINGER
+1) Entra a tu hPanel → Administrador de archivos → carpeta public_html
+2) Sube TODO el contenido de esta carpeta (incluido el archivo oculto .htaccess)
+3) Listo. Si haces cambios después, vuelve a subir los archivos modificados.
+
+(También funciona arrastrando la carpeta a Netlify, Vercel o cualquier
+hosting estático.)
+
+CONTACTO DEL PIE DE PÁGINA
+- El email del footer es luis@lbads.co. Si quieres otro,
+  búscalo en index.html y cámbialo.

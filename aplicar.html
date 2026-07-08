@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplica para trabajar con Luis Barrios</title>
+  <meta name="description" content="Cuéntame de tu negocio en 2 minutos y agenda una llamada conmigo. Adquisición de clientes con Meta Ads." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" />
+
+  <link rel="stylesheet" href="styles.css?v=20260708" />
+  <noscript><style>.fstep { position: static; opacity: 1; visibility: visible; transform: none; grid-area: auto; }</style></noscript>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+<body class="page-funnel">
+  <a class="skip-link" href="#funnel">Saltar al formulario</a>
+
+  <!-- Progress -->
+  <div class="funnel-progress" aria-hidden="true"><span data-progress></span></div>
+
+  <header class="funnel-nav">
+    <a class="nav-logo" href="index.html" aria-label="Volver al inicio">
+      <img class="nav-mark" src="assets/img/logo-lb.png?v=2" alt="[LB] — Luis Barrios" />
+    </a>
+    <span class="funnel-counter" data-counter aria-live="polite"></span>
+    <a class="funnel-close" href="index.html" aria-label="Cerrar y volver al inicio">✕</a>
+  </header>
+
+  <main class="funnel" id="funnel" data-funnel>
+    <div class="funnel-mesh" aria-hidden="true"></div>
+
+    <!-- Paso 0 — Intro -->
+    <section class="fstep is-active" data-step="intro">
+      <div class="fstep-inner">
+        <p class="kicker"><span class="kicker-dot"></span>Aplicación · 2 minutos</p>
+        <h1 class="fstep-title">Cuéntame de <em>tu negocio</em>.</h1>
+        <p class="fstep-sub">Siete preguntas cortas. Al final podrás agendar una llamada directamente conmigo. Sin compromiso.</p>
+        <button class="btn btn-primary btn-lg" data-next>Empezar</button>
+        <p class="fstep-hint">o pulsa <kbd>Enter</kbd></p>
+      </div>
+    </section>
+
+    <!-- Paso 1 — Nombre -->
+    <section class="fstep" data-step="nombre">
+      <div class="fstep-inner">
+        <p class="fstep-q">1 → ¿Cómo te llamas?</p>
+        <input class="finput" type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+        <div class="fstep-actions">
+          <button class="btn btn-primary" data-next>Continuar</button>
+          <p class="fstep-hint">pulsa <kbd>Enter</kbd> ↵</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 2 — Tipo de negocio -->
+    <section class="fstep" data-step="tipo">
+      <div class="fstep-inner">
+        <p class="fstep-q">2 → ¿Qué tipo de negocio tienes?</p>
+        <div class="foptions" role="group" aria-label="Tipo de negocio">
+          <button class="foption" data-value="Consultorio médico"><span>A</span>Consultorio médico</button>
+          <button class="foption" data-value="Clínica estética"><span>B</span>Clínica estética</button>
+          <button class="foption" data-value="Empresa o marca"><span>C</span>Empresa o marca</button>
+          <button class="foption" data-value="Otro"><span>D</span>Otro</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 3 — Negocio -->
+    <section class="fstep" data-step="negocio">
+      <div class="fstep-inner">
+        <p class="fstep-q">3 → ¿Cómo se llama tu negocio y a qué se dedica?</p>
+        <input class="finput" type="text" name="negocio" placeholder="Ej.: Clínica Sonría — odontología en Bogotá" required />
+        <div class="fstep-actions">
+          <button class="btn btn-primary" data-next>Continuar</button>
+          <p class="fstep-hint">pulsa <kbd>Enter</kbd> ↵</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 4 — Experiencia -->
+    <section class="fstep" data-step="experiencia">
+      <div class="fstep-inner">
+        <p class="fstep-q">4 → ¿Ya has invertido en anuncios de Facebook o Instagram?</p>
+        <div class="foptions" role="group" aria-label="Experiencia con Meta Ads">
+          <button class="foption" data-value="Nunca he invertido"><span>A</span>Nunca he invertido</button>
+          <button class="foption" data-value="Invertí, sin buenos resultados"><span>B</span>Invertí, pero sin buenos resultados</button>
+          <button class="foption" data-value="Invierto y quiero escalar"><span>C</span>Invierto actualmente y quiero escalar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 5 — Presupuesto -->
+    <section class="fstep" data-step="presupuesto">
+      <div class="fstep-inner">
+        <p class="fstep-q">5 → ¿Cuánto puedes invertir al mes en anuncios?</p>
+        <p class="fstep-note">Solo la pauta publicitaria (lo que se paga a Meta). Mi tarifa de gestión la vemos en la llamada.</p>
+        <div class="foptions" role="group" aria-label="Presupuesto mensual">
+          <button class="foption" data-value="Menos de 500 US$"><span>A</span>Menos de 500 US$</button>
+          <button class="foption" data-value="500 – 1.500 US$"><span>B</span>500 – 1.500 US$</button>
+          <button class="foption" data-value="1.500 – 5.000 US$"><span>C</span>1.500 – 5.000 US$</button>
+          <button class="foption" data-value="Más de 5.000 US$"><span>D</span>Más de 5.000 US$</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 6 — Cuándo -->
+    <section class="fstep" data-step="cuando">
+      <div class="fstep-inner">
+        <p class="fstep-q">6 → ¿Cuándo quieres empezar?</p>
+        <div class="foptions" role="group" aria-label="Cuándo empezar">
+          <button class="foption" data-value="Lo antes posible"><span>A</span>Lo antes posible</button>
+          <button class="foption" data-value="Este mes"><span>B</span>Dentro de este mes</button>
+          <button class="foption" data-value="Solo estoy explorando"><span>C</span>Por ahora solo estoy explorando</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 7 — Contacto -->
+    <section class="fstep" data-step="contacto">
+      <div class="fstep-inner">
+        <p class="fstep-q">7 → ¿Dónde te contacto?</p>
+        <input class="finput" type="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" required />
+        <input class="finput" type="tel" name="whatsapp" placeholder="Tu WhatsApp (con código de país)" autocomplete="tel" />
+        <div class="fstep-actions">
+          <button class="btn btn-primary" data-next>Continuar</button>
+          <p class="fstep-hint">pulsa <kbd>Enter</kbd> ↵</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso final — Calendly -->
+    <section class="fstep" data-step="final">
+      <div class="fstep-inner">
+        <div class="fcheck" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2.5" pathLength="100" class="fcheck-circle"/><path d="M20 33l8 8 16-17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" pathLength="100" class="fcheck-tick"/></svg>
+        </div>
+        <h2 class="fstep-title">Último paso, <em data-final-name>listo</em>.</h2>
+        <p class="fstep-sub">Elige un horario y hablamos de tu negocio. La llamada es corta, directa y sin compromiso.</p>
+        <div class="fsummary" data-summary aria-label="Resumen de tus respuestas"></div>
+        <a class="btn btn-primary btn-lg" data-calendly href="#" target="_blank" rel="noopener">Agendar mi llamada con Luis</a>
+        <p class="fstep-hint">Se abre tu calendario de reservas (Calendly)</p>
+      </div>
+    </section>
+
+    <!-- Back -->
+    <button class="funnel-back" data-back aria-label="Pregunta anterior" hidden>← Anterior</button>
+  </main>
+
+  <script defer src="lib/manifest.js?v=20260708"></script>
+  <script defer src="funnel.js?v=20260708"></script>
+</body>
+</html>

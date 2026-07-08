@@ -1,0 +1,35 @@
+{
+  "ciudad-noche": {
+    "src": "assets/img/ciudad-noche.jpg",
+    "title": "Bokeh Urban",
+    "creator": "Clem Onojeghuo",
+    "creator_url": "https://stocksnap.io/author/11287",
+    "license": "cc0",
+    "license_version": "1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "foreign_landing_url": "https://stocksnap.io/photo/bokeh-urban-4RAOTUPSVQ",
+    "source": "stocksnap"
+  },
+  "silueta": {
+    "src": "assets/img/silueta.jpg",
+    "title": "@ an ED mtg over the racetrack",
+    "creator": "curtis palmer",
+    "creator_url": "https://www.flickr.com/photos/46453719@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/46453719@N00/200466124",
+    "source": "flickr"
+  },
+  "consultorio": {
+    "src": "assets/img/consultorio.jpg",
+    "title": "caretaking",
+    "creator": "Muffet",
+    "creator_url": "https://www.flickr.com/photos/53133240@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/53133240@N00/5017676948",
+    "source": "flickr"
+  }
+}
