@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="styles.css?v=20260708" />
+  <link rel="stylesheet" href="styles.css?v=20260716" />
   <noscript><style>.fstep { position: static; opacity: 1; visibility: visible; transform: none; grid-area: auto; }</style></noscript>
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 </head>
@@ -37,16 +37,68 @@
       <div class="fstep-inner">
         <p class="kicker"><span class="kicker-dot"></span>Aplicación · 2 minutos</p>
         <h1 class="fstep-title">Cuéntame de <em>tu negocio</em>.</h1>
-        <p class="fstep-sub">Siete preguntas cortas. Al final podrás agendar una llamada directamente conmigo. Sin compromiso.</p>
+        <p class="fstep-sub">Solo trabajamos con un número limitado de negocios cada mes. Completa estas 7 preguntas para saber si tu negocio es un buen candidato para trabajar con <em>LB</em>.</p>
         <button class="btn btn-primary btn-lg" data-next>Empezar</button>
         <p class="fstep-hint">o pulsa <kbd>Enter</kbd></p>
       </div>
     </section>
 
-    <!-- Paso 1 — Nombre -->
+    <!-- Paso 1 — Tipo de negocio -->
+    <section class="fstep" data-step="tipo">
+      <div class="fstep-inner">
+        <p class="fstep-q">1 → ¿Qué tipo de negocio tienes?</p>
+        <div class="foptions" role="group" aria-label="Tipo de negocio">
+          <button class="foption" data-value="Clínica estética"><span>A</span><span class="foption-txt">Clínica estética</span></button>
+          <button class="foption" data-value="Medicina estética"><span>B</span><span class="foption-txt">Medicina estética</span></button>
+          <button class="foption" data-value="E-commerce / Negocio online"><span>C</span><span class="foption-txt">E-commerce / Negocio online</span></button>
+          <button class="foption" data-value="Otro"><span>D</span><span class="foption-txt">Otro</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 2 — Valor promedio de venta -->
+    <section class="fstep" data-step="valor">
+      <div class="fstep-inner">
+        <p class="fstep-q">2 → ¿Cuál es el valor promedio de una venta?</p>
+        <div class="foptions" role="group" aria-label="Valor promedio de una venta">
+          <button class="foption" data-value="Menos de $500.000 COP (≈ USD $143)"><span>A</span><span class="foption-txt">Menos de $500.000 COP <small>≈ USD $143</small></span></button>
+          <button class="foption" data-value="$500.000 – $1.000.000 COP (≈ USD $143 – $286)"><span>B</span><span class="foption-txt">$500.000 – $1.000.000 COP <small>≈ USD $143 – $286</small></span></button>
+          <button class="foption" data-value="$1.000.000 – $3.000.000 COP (≈ USD $286 – $857)"><span>C</span><span class="foption-txt">$1.000.000 – $3.000.000 COP <small>≈ USD $286 – $857</small></span></button>
+          <button class="foption" data-value="Más de $3.000.000 COP (≈ USD $857+)"><span>D</span><span class="foption-txt">Más de $3.000.000 COP <small>≈ USD $857+</small></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 3 — Presupuesto -->
+    <section class="fstep" data-step="presupuesto">
+      <div class="fstep-inner">
+        <p class="fstep-q">3 → ¿Cuál es el presupuesto mensual que estás dispuesto a invertir en Meta Ads?</p>
+        <p class="fstep-note">Solo la pauta publicitaria (lo que se paga a Meta). Mi tarifa de gestión la vemos en la llamada.</p>
+        <div class="foptions" role="group" aria-label="Presupuesto mensual en Meta Ads">
+          <button class="foption" data-value="$2.000.000 – $5.000.000 COP (≈ USD $571 – $1.429)"><span>A</span><span class="foption-txt">$2.000.000 – $5.000.000 COP <small>≈ USD $571 – $1.429</small></span></button>
+          <button class="foption" data-value="$5.000.000 – $10.000.000 COP (≈ USD $1.429 – $2.857)"><span>B</span><span class="foption-txt">$5.000.000 – $10.000.000 COP <small>≈ USD $1.429 – $2.857</small></span></button>
+          <button class="foption" data-value="Más de $10.000.000 COP (≈ USD $2.857+)"><span>C</span><span class="foption-txt">Más de $10.000.000 COP <small>≈ USD $2.857+</small></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 4 — Quién responde -->
+    <section class="fstep" data-step="responde">
+      <div class="fstep-inner">
+        <p class="fstep-q">4 → ¿Quién responderá los pacientes o clientes potenciales que lleguen?</p>
+        <div class="foptions" role="group" aria-label="Quién responde a los clientes potenciales">
+          <button class="foption" data-value="Yo mismo"><span>A</span><span class="foption-txt">Yo mismo</span></button>
+          <button class="foption" data-value="Recepción / Equipo"><span>B</span><span class="foption-txt">Recepción / Equipo</span></button>
+          <button class="foption" data-value="Equipo comercial"><span>C</span><span class="foption-txt">Equipo comercial</span></button>
+          <button class="foption" data-value="Aún no tengo quién los atienda"><span>D</span><span class="foption-txt">Aún no tengo quién los atienda</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 5 — Nombre -->
     <section class="fstep" data-step="nombre">
       <div class="fstep-inner">
-        <p class="fstep-q">1 → ¿Cómo te llamas?</p>
+        <p class="fstep-q">5 → ¿Cómo te llamas?</p>
         <input class="finput" type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
         <div class="fstep-actions">
           <button class="btn btn-primary" data-next>Continuar</button>
@@ -55,24 +107,11 @@
       </div>
     </section>
 
-    <!-- Paso 2 — Tipo de negocio -->
-    <section class="fstep" data-step="tipo">
+    <!-- Paso 6 — Correo -->
+    <section class="fstep" data-step="email">
       <div class="fstep-inner">
-        <p class="fstep-q">2 → ¿Qué tipo de negocio tienes?</p>
-        <div class="foptions" role="group" aria-label="Tipo de negocio">
-          <button class="foption" data-value="Consultorio médico"><span>A</span>Consultorio médico</button>
-          <button class="foption" data-value="Clínica estética"><span>B</span>Clínica estética</button>
-          <button class="foption" data-value="Empresa o marca"><span>C</span>Empresa o marca</button>
-          <button class="foption" data-value="Otro"><span>D</span>Otro</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Paso 3 — Negocio -->
-    <section class="fstep" data-step="negocio">
-      <div class="fstep-inner">
-        <p class="fstep-q">3 → ¿Cómo se llama tu negocio y a qué se dedica?</p>
-        <input class="finput" type="text" name="negocio" placeholder="Ej.: Clínica Sonría — odontología en Bogotá" required />
+        <p class="fstep-q">6 → ¿Cuál es tu correo electrónico?</p>
+        <input class="finput" type="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required />
         <div class="fstep-actions">
           <button class="btn btn-primary" data-next>Continuar</button>
           <p class="fstep-hint">pulsa <kbd>Enter</kbd> ↵</p>
@@ -80,50 +119,11 @@
       </div>
     </section>
 
-    <!-- Paso 4 — Experiencia -->
-    <section class="fstep" data-step="experiencia">
+    <!-- Paso 7 — WhatsApp -->
+    <section class="fstep" data-step="whatsapp">
       <div class="fstep-inner">
-        <p class="fstep-q">4 → ¿Ya has invertido en anuncios de Facebook o Instagram?</p>
-        <div class="foptions" role="group" aria-label="Experiencia con Meta Ads">
-          <button class="foption" data-value="Nunca he invertido"><span>A</span>Nunca he invertido</button>
-          <button class="foption" data-value="Invertí, sin buenos resultados"><span>B</span>Invertí, pero sin buenos resultados</button>
-          <button class="foption" data-value="Invierto y quiero escalar"><span>C</span>Invierto actualmente y quiero escalar</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Paso 5 — Presupuesto -->
-    <section class="fstep" data-step="presupuesto">
-      <div class="fstep-inner">
-        <p class="fstep-q">5 → ¿Cuánto puedes invertir al mes en anuncios?</p>
-        <p class="fstep-note">Solo la pauta publicitaria (lo que se paga a Meta). Mi tarifa de gestión la vemos en la llamada.</p>
-        <div class="foptions" role="group" aria-label="Presupuesto mensual">
-          <button class="foption" data-value="Menos de 500 US$"><span>A</span>Menos de 500 US$</button>
-          <button class="foption" data-value="500 – 1.500 US$"><span>B</span>500 – 1.500 US$</button>
-          <button class="foption" data-value="1.500 – 5.000 US$"><span>C</span>1.500 – 5.000 US$</button>
-          <button class="foption" data-value="Más de 5.000 US$"><span>D</span>Más de 5.000 US$</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Paso 6 — Cuándo -->
-    <section class="fstep" data-step="cuando">
-      <div class="fstep-inner">
-        <p class="fstep-q">6 → ¿Cuándo quieres empezar?</p>
-        <div class="foptions" role="group" aria-label="Cuándo empezar">
-          <button class="foption" data-value="Lo antes posible"><span>A</span>Lo antes posible</button>
-          <button class="foption" data-value="Este mes"><span>B</span>Dentro de este mes</button>
-          <button class="foption" data-value="Solo estoy explorando"><span>C</span>Por ahora solo estoy explorando</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Paso 7 — Contacto -->
-    <section class="fstep" data-step="contacto">
-      <div class="fstep-inner">
-        <p class="fstep-q">7 → ¿Dónde te contacto?</p>
-        <input class="finput" type="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" required />
-        <input class="finput" type="tel" name="whatsapp" placeholder="Tu WhatsApp (con código de país)" autocomplete="tel" />
+        <p class="fstep-q">7 → ¿Cuál es tu WhatsApp?</p>
+        <input class="finput" type="tel" name="whatsapp" placeholder="+57 300 123 4567" autocomplete="tel" required />
         <div class="fstep-actions">
           <button class="btn btn-primary" data-next>Continuar</button>
           <p class="fstep-hint">pulsa <kbd>Enter</kbd> ↵</p>
@@ -149,7 +149,7 @@
     <button class="funnel-back" data-back aria-label="Pregunta anterior" hidden>← Anterior</button>
   </main>
 
-  <script defer src="lib/manifest.js?v=20260708"></script>
-  <script defer src="funnel.js?v=20260708"></script>
+  <script defer src="lib/manifest.js?v=20260716"></script>
+  <script defer src="funnel.js?v=20260716"></script>
 </body>
 </html>

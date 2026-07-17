@@ -99,10 +99,10 @@
     const summary = $("[data-summary]");
     if (summary) {
       const rows = [
-        ["Negocio", [a.tipo, a.negocio].filter(Boolean).join(" — ")],
-        ["Experiencia con Meta Ads", a.experiencia],
+        ["Tipo de negocio", a.tipo],
+        ["Valor promedio de venta", a.valor],
         ["Presupuesto mensual", a.presupuesto],
-        ["Cuándo empezar", a.cuando]
+        ["Quién atiende los clientes", a.responde]
       ].filter(r => r[1]);
       summary.innerHTML = rows.map(r =>
         "<div><strong>" + escHTML(r[0]) + ":</strong> " + escHTML(r[1]) + "</div>"
@@ -118,10 +118,9 @@
       // a1 prefills the first custom question of the Calendly event (if it exists)
       const resumen = [
         a.tipo && "Tipo: " + a.tipo,
-        a.negocio && "Negocio: " + a.negocio,
-        a.experiencia && "Experiencia: " + a.experiencia,
+        a.valor && "Valor de venta: " + a.valor,
         a.presupuesto && "Presupuesto/mes: " + a.presupuesto,
-        a.cuando && "Empezar: " + a.cuando,
+        a.responde && "Quién atiende: " + a.responde,
         a.whatsapp && "WhatsApp: " + a.whatsapp
       ].filter(Boolean).join(" | ");
       if (resumen) params.set("a1", resumen);

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" />
 
   <link rel="preload" as="image" href="assets/img/luis-hero.webp" fetchpriority="high" />
-  <link rel="stylesheet" href="styles.css?v=20260708" />
+  <link rel="stylesheet" href="styles.css?v=20260716" />
   <noscript><style>.reveal { opacity: 1; transform: none; } .splash { display: none; }</style></noscript>
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 </head>
@@ -30,10 +30,8 @@
         <img class="nav-mark" src="assets/img/logo-lb.png?v=2" alt="[LB] — Luis Barrios" />
       </a>
       <nav class="nav-links" aria-label="Secciones">
-        <a href="#para-quien">Para quién</a>
         <a href="#resultados">Resultados</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
+        <a class="nav-hl" href="#diagnostico"><span class="nav-hl-dot" aria-hidden="true"></span>Diagnóstico</a>
         <a href="#faq">Preguntas</a>
       </nav>
       <a class="btn btn-primary nav-cta" href="aplicar.html">Trabajar con Luis</a>
@@ -46,10 +44,8 @@
   <!-- Mobile menu -->
   <div class="menu-mobile" data-menu>
     <nav aria-label="Menú móvil">
-      <a href="#para-quien">Para quién</a>
       <a href="#resultados">Resultados</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#proceso">Proceso</a>
+      <a class="menu-hl" href="#diagnostico">Diagnóstico</a>
       <a href="#faq">Preguntas</a>
       <a class="btn btn-primary" href="aplicar.html">Trabajar con Luis</a>
     </nav>
@@ -177,11 +173,45 @@
       </div>
     </section>
 
-    <!-- ============================ PROBLEMA ============================ -->
-    <section class="section section-editorial">
-      <div class="container container-narrow">
-        <h2 class="editorial-title reveal">Publicar todos los días <em>no es una estrategia</em>.</h2>
-        <p class="editorial-copy reveal">La mayoría de los negocios publican y esperan. Los que crecen, <strong>anuncian</strong>: ponen su oferta frente a las personas correctas, en el momento correcto, con un mensaje que vende. Ese es mi trabajo.</p>
+    <!-- ============================ DIAGNÓSTICO ============================ -->
+    <section class="section section-diag" id="diagnostico">
+      <div class="diag-aura" aria-hidden="true"></div>
+      <div class="container">
+        <header class="section-head section-head-center reveal">
+          <p class="kicker">03 — Diagnóstico</p>
+          <h2 class="section-title">¿Tu negocio está <em>listo para crecer</em>?</h2>
+          <p class="diag-sub">Antes de invertir en publicidad, descubre si tu negocio cumple con los factores necesarios para escalar de forma rentable.</p>
+          <p class="diag-sub-alt">Obtén tu <strong>Diagnóstico de Crecimiento LB&nbsp;Ads™</strong> completamente gratis en menos de 3 minutos.</p>
+        </header>
+
+        <!-- Tarjeta de diagnóstico -->
+        <figure class="diag-card reveal" data-diag data-glow>
+          <div class="diag-scan" aria-hidden="true"></div>
+          <div class="diag-card-inner">
+            <div class="diag-card-head">
+              <span class="diag-badge"><span class="diag-badge-dot"></span>Diagnóstico de Crecimiento LB&nbsp;Ads™</span>
+              <span class="diag-state">Sin completar</span>
+            </div>
+
+            <div class="diag-score">
+              <span class="diag-num diag-num-q" aria-hidden="true">?</span>
+              <span class="diag-den">/ 100</span>
+            </div>
+            <p class="diag-verdict">Tu puntuación aparece al terminar</p>
+
+            <div class="diag-bar diag-bar-empty" aria-hidden="true"></div>
+            <div class="diag-scale" aria-hidden="true"><span>0</span><span>50</span><span>100</span></div>
+          </div>
+        </figure>
+
+        <div class="diag-cta reveal">
+          <p class="diag-invite">Responde 10 preguntas y descubre la puntuación de tu negocio</p>
+          <span class="diag-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </span>
+          <a class="btn btn-primary btn-lg btn-shine" href="diagnostico.html">Obtener mi Diagnóstico Gratuito</a>
+          <p class="diag-note">Gratis · 3 minutos · Sin compromiso</p>
+        </div>
       </div>
     </section>
 
@@ -189,7 +219,7 @@
     <section class="section" id="servicios">
       <div class="container">
         <header class="section-head reveal">
-          <p class="kicker">03 — Qué hago por ti</p>
+          <p class="kicker">04 — Qué hago por ti</p>
           <h2 class="section-title">Tres cosas. <em>Bien hechas.</em></h2>
         </header>
         <div class="pillars">
@@ -224,7 +254,7 @@
             <figcaption>Luis Barrios · Trato directo, sin intermediarios</figcaption>
           </figure>
           <div class="personal-copy">
-            <p class="kicker reveal">04 — Por qué conmigo</p>
+            <p class="kicker reveal">05 — Por qué conmigo</p>
             <h2 class="section-title reveal">No soy una agencia. <em>Esa es la ventaja.</em></h2>
             <p class="reveal">Cuando trabajas conmigo, la persona que diseña tu estrategia es la misma que escribe tus anuncios, revisa tus campañas todos los días y te contesta los mensajes. Sin ejecutivos de cuenta, sin tu negocio perdido en una cartera de cien clientes.</p>
             <ul class="personal-list">
@@ -235,46 +265,6 @@
             <a class="btn btn-primary reveal" href="aplicar.html">Aplicar para trabajar conmigo</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============================ PROCESO ============================ -->
-    <section class="section" id="proceso">
-      <div class="container">
-        <header class="section-head reveal">
-          <p class="kicker">05 — El proceso</p>
-          <h2 class="section-title">De la aplicación a los <em>primeros clientes</em>.</h2>
-        </header>
-        <ol class="steps">
-          <li class="step-item reveal">
-            <span class="step-num">01</span>
-            <div>
-              <h3>Aplica</h3>
-              <p>Respondes un formulario corto sobre tu negocio, tu situación y tu presupuesto. Dos minutos, sin rodeos.</p>
-            </div>
-          </li>
-          <li class="step-item reveal">
-            <span class="step-num">02</span>
-            <div>
-              <h3>Hablamos</h3>
-              <p>Si encajamos, agendas una llamada conmigo. Vemos tus números, tu oferta y qué resultados son realistas.</p>
-            </div>
-          </li>
-          <li class="step-item reveal">
-            <span class="step-num">03</span>
-            <div>
-              <h3>Lanzamos</h3>
-              <p>Creo los anuncios, monto las campañas en Meta Ads Manager y las ponemos a trabajar.</p>
-            </div>
-          </li>
-          <li class="step-item reveal">
-            <span class="step-num">04</span>
-            <div>
-              <h3>Optimizo y escalo</h3>
-              <p>Reviso resultados a diario, ajusto lo necesario y escalo lo que funciona. Tú recibes clientes — y reportes claros.</p>
-            </div>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -335,8 +325,9 @@
       <nav class="footer-nav" aria-label="Pie de página">
         <a href="#para-quien">Para quién</a>
         <a href="#resultados">Resultados</a>
+        <a href="#diagnostico">Diagnóstico</a>
         <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
+        <a href="#por-que-luis">Por qué conmigo</a>
         <a href="#faq">Preguntas</a>
         <a href="aplicar.html">Trabajar con Luis</a>
       </nav>
@@ -352,7 +343,7 @@
 
   <script defer src="lib/gsap.min.js"></script>
   <script defer src="lib/ScrollTrigger.min.js"></script>
-  <script defer src="lib/manifest.js?v=20260708"></script>
-  <script defer src="main.js?v=20260708"></script>
+  <script defer src="lib/manifest.js?v=20260716"></script>
+  <script defer src="main.js?v=20260716"></script>
 </body>
 </html>

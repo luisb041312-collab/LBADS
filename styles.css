@@ -242,6 +242,53 @@ strong { font-weight: 600; color: var(--cream); }
 }
 .nav-links a:hover { color: var(--cream); }
 .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* Diagnóstico destacado: cápsula dorada con punto que late y un
+   destello que la recorre cada pocos segundos */
+.nav-links a.nav-hl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.42rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(196, 154, 91, 0.38);
+  background: rgba(196, 154, 91, 0.08);
+  color: var(--gold);
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.35s var(--ease-out), background 0.35s var(--ease-out),
+              color 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+}
+.nav-links a.nav-hl::after { display: none; }  /* sin el subrayado de los demás */
+.nav-links a.nav-hl::before {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 38%, rgba(196, 154, 91, 0.3) 50%, transparent 62%);
+  transform: translateX(-130%);
+  animation: navShine 5s var(--ease-soft) infinite;
+}
+@keyframes navShine {
+  0%, 62%  { transform: translateX(-130%); }
+  88%, 100% { transform: translateX(130%); }
+}
+.nav-links a.nav-hl:hover {
+  border-color: var(--gold);
+  background: rgba(196, 154, 91, 0.16);
+  color: var(--cream);
+  transform: translateY(-1px);
+}
+.nav-hl-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: 0 0 auto;
+  animation: navDot 2.2s ease-in-out infinite;
+}
+@keyframes navDot {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(211, 58, 34, 0.5); }
+  50%      { opacity: 0.6; transform: scale(0.72); box-shadow: 0 0 0 5px rgba(211, 58, 34, 0); }
+}
 .nav-cta { display: none; margin-left: 0.5rem; }
 
 .nav-burger {
@@ -282,6 +329,10 @@ strong { font-weight: 600; color: var(--cream); }
   transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out), color 0.3s;
 }
 .menu-mobile nav a:not(.btn):hover { color: var(--accent); }
+/* Diagnóstico destacado. Va DESPUÉS de la regla de arriba a propósito:
+   tienen la misma especificidad, así que gana la última en el archivo. */
+.menu-mobile nav a.menu-hl { color: var(--gold); }
+.menu-mobile nav a.menu-hl:hover { color: var(--accent); }
 .menu-mobile.is-open nav a:not(.btn) { opacity: 1; transform: none; }
 .menu-mobile.is-open nav a:nth-child(1) { transition-delay: 0.06s; }
 .menu-mobile.is-open nav a:nth-child(2) { transition-delay: 0.12s; }
@@ -485,7 +536,7 @@ strong { font-weight: 600; color: var(--cream); }
 .section-title em { font-style: italic; color: var(--gold); }
 
 /* Single-column grids: never let content max-width inflate the track */
-.cards-3, .pillars, .steps, .proof-grid, .faq,
+.cards-3, .pillars, .proof-grid, .faq,
 .footer-inner, .personal-copy, .fstep-inner, .foptions, .cta-inner {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -544,29 +595,6 @@ strong { font-weight: 600; color: var(--cream); }
   font-weight: 600;
 }
 .card p { color: var(--cream-2); font-size: 0.98rem; }
-
-/* =============================================================
-   11. Editorial
-   ============================================================= */
-.section-editorial {
-  background: var(--bg-2);
-  border-block: 1px solid var(--line);
-  text-align: center;
-}
-.editorial-title {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(1.9rem, 5vw, 3.2rem);
-  line-height: 1.15;
-  margin-bottom: 1.6rem;
-}
-.editorial-title em { font-style: italic; color: var(--accent); }
-.editorial-copy {
-  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-  color: var(--cream-2);
-  max-width: 44rem;
-  margin-inline: auto;
-}
 
 /* =============================================================
    12. Pillars (Servicios)
@@ -679,43 +707,6 @@ strong { font-weight: 600; color: var(--cream); }
 }
 
 /* =============================================================
-   14. Steps (Proceso)
-   ============================================================= */
-.steps {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  gap: 1.2rem;
-  counter-reset: step;
-}
-.step-item {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.4rem;
-  align-items: start;
-  padding: 1.8rem 1.6rem;
-  background: var(--bg-3);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  transition: border-color 0.5s var(--ease-out), transform 0.5s var(--ease-out);
-}
-.step-item:hover { border-color: rgba(196, 154, 91, 0.4); transform: translateX(6px); }
-.step-num {
-  font-family: var(--display);
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  line-height: 1;
-  color: var(--accent);
-  padding-top: 0.15rem;
-}
-.step-item h3 {
-  font-family: var(--serif);
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-.step-item p { color: var(--cream-2); font-size: 0.98rem; }
-
-/* =============================================================
    15. Results
    ============================================================= */
 .section-results { background: var(--bg-2); border-block: 1px solid var(--line); }
@@ -798,6 +789,264 @@ strong { font-weight: 600; color: var(--cream); }
   color: var(--mute);
 }
 .proof-cta { margin-top: 1.5rem; text-align: center; }
+
+/* =============================================================
+   15.5 Diagnóstico — tarjeta premium + pilares
+   ============================================================= */
+.section-diag {
+  position: relative;
+  overflow: clip;
+  /* Puente cromático: entra desde el gris de Resultados, se hunde en un
+     negro más profundo (la tarjeta flota) y sale al negro de Servicios */
+  background: linear-gradient(180deg,
+    var(--bg-2) 0%, #070505 38%, #070505 62%, var(--bg) 100%);
+  border-top: 1px solid var(--line);
+  padding-block: clamp(6rem, 13vw, 10rem);
+}
+/* Aura viva de fondo (solo escritorio: el blur grande es caro en móvil) */
+.diag-aura {
+  position: absolute;
+  inset: 8% -5%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 44% at 28% 40%, rgba(196, 154, 91, 0.13) 0%, transparent 70%),
+    radial-gradient(34% 40% at 74% 62%, rgba(211, 58, 34, 0.11) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: diagAura 18s ease-in-out infinite alternate;
+}
+@keyframes diagAura {
+  from { transform: translate3d(-2%, -1.5%, 0) scale(1); opacity: 0.75; }
+  to   { transform: translate3d(2%, 1.5%, 0) scale(1.1); opacity: 1; }
+}
+.section-diag .container { position: relative; z-index: 1; }
+.diag-sub {
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 2.1vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--cream-2);
+  max-width: 46rem;
+}
+.diag-sub-alt {
+  font-size: 0.98rem;
+  color: var(--mute);
+  max-width: 44rem;
+}
+.diag-sub-alt strong { color: var(--gold); font-weight: 500; }
+
+/* ---- Tarjeta ---- */
+.diag-card {
+  position: relative;
+  max-width: 620px;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  border-radius: 22px;
+  overflow: clip;
+  /* Fallback sólido primero (Firefox antiguo / sin backdrop-filter) */
+  background: rgba(26, 20, 15, 0.92);
+  border: 1px solid rgba(196, 154, 91, 0.22);
+  box-shadow:
+    0 40px 90px -40px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(241, 234, 217, 0.06);
+  transition: border-color 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out),
+              transform 0.6s var(--ease-out);
+}
+@supports (backdrop-filter: blur(20px)) {
+  .diag-card {
+    background: rgba(26, 20, 15, 0.55);
+    backdrop-filter: blur(22px) saturate(135%);
+    -webkit-backdrop-filter: blur(22px) saturate(135%);
+  }
+}
+.diag-card:hover {
+  border-color: rgba(196, 154, 91, 0.4);
+  box-shadow:
+    0 46px 100px -40px rgba(0, 0, 0, 0.95),
+    0 0 70px -30px rgba(196, 154, 91, 0.3),
+    inset 0 1px 0 rgba(241, 234, 217, 0.09);
+}
+/* Brillo que sigue al cursor */
+.diag-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--hx, 50%) var(--hy, 0%),
+    rgba(196, 154, 91, 0.1), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out);
+  pointer-events: none;
+}
+.diag-card:hover::after { opacity: 1; }
+/* Barrido de escaneo — sensación de herramienta viva */
+.diag-scan {
+  position: absolute;
+  top: 0; left: -30%;
+  width: 30%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(196, 154, 91, 0.07), transparent);
+  animation: diagScan 7s var(--ease-soft) infinite;
+  pointer-events: none;
+}
+@keyframes diagScan {
+  0%, 55%  { transform: translateX(0); }
+  100%     { transform: translateX(440%); }
+}
+.diag-card-inner {
+  position: relative;
+  z-index: 2;
+  padding: clamp(1.8rem, 4vw, 2.6rem);
+}
+.diag-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(241, 234, 217, 0.08);
+}
+.diag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.diag-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 0 rgba(196, 154, 91, 0.6);
+  animation: diagPulse 2.6s ease-out infinite;
+}
+@keyframes diagPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(196, 154, 91, 0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(196, 154, 91, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(196, 154, 91, 0); }
+}
+.diag-state {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.diag-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+}
+.diag-num {
+  font-family: var(--display);
+  font-size: clamp(3.6rem, 11vw, 5.6rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 44px rgba(196, 154, 91, 0.28);
+}
+.diag-den {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--mute);
+  letter-spacing: 0.06em;
+}
+.diag-verdict {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  color: var(--gold);
+  margin-top: 0.5rem;
+}
+/* La incógnita invita a hacer el test: no promete ninguna nota */
+.diag-num-q {
+  color: var(--gold);
+  text-shadow: 0 0 48px rgba(196, 154, 91, 0.4);
+  animation: diagQ 3.2s ease-in-out infinite;
+}
+@keyframes diagQ {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+.diag-bar {
+  position: relative;
+  height: 7px;
+  margin-top: 1.8rem;
+  border-radius: 99px;
+  background: rgba(241, 234, 217, 0.08);
+  overflow: clip;
+}
+/* Barra sin puntuación: un brillo la recorre en espera de las respuestas */
+.diag-bar-empty::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(196, 154, 91, 0.5), transparent);
+  transform: translateX(-100%);
+  animation: diagWait 2.6s var(--ease-soft) infinite;
+}
+@keyframes diagWait {
+  0%   { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(100%); }
+}
+.diag-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: rgba(154, 142, 122, 0.7);
+}
+
+/* ---- CTA ---- */
+.diag-cta {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  margin-top: clamp(2.4rem, 5vw, 3.2rem);
+}
+.diag-invite {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--cream);
+  text-align: center;
+  max-width: 30rem;
+}
+/* Flecha que baja al botón: señala hacia dónde ir */
+.diag-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  margin-block: -0.2rem;
+  color: var(--accent);
+  animation: diagArrow 1.9s var(--ease-soft) infinite;
+}
+.diag-arrow svg { width: 26px; height: 26px; }
+@keyframes diagArrow {
+  0%, 100% { transform: translateY(-4px); opacity: 0.55; }
+  50%      { transform: translateY(5px); opacity: 1; }
+}
+.diag-note {
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+/* Destello premium al pasar el cursor */
+.btn-shine { position: relative; overflow: hidden; isolation: isolate; }
+.btn-shine::after {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: -1;
+  background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.28) 50%, transparent 68%);
+  transform: translateX(-130%);
+  transition: transform 0.85s var(--ease-out);
+}
+.btn-shine:hover::after { transform: translateX(130%); }
 
 /* =============================================================
    16. FAQ
@@ -1029,6 +1278,15 @@ strong { font-weight: 600; color: var(--cream); }
   line-height: 1.25;
 }
 .fstep-note { color: var(--mute); font-size: 0.92rem; margin-top: -0.6rem; }
+/* Etiqueta del pilar que se está evaluando (diagnóstico) */
+.fstep-pillar {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: -0.7rem;
+}
 .fstep-hint { font-size: 0.8rem; color: var(--mute); }
 .fstep-hint kbd {
   font-family: var(--sans);
@@ -1077,7 +1335,8 @@ strong { font-weight: 600; color: var(--cream); }
   transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out),
               transform 0.3s var(--ease-out);
 }
-.foption span {
+/* Distintivo con la letra (A, B, C…) */
+.foption > span:first-child {
   display: grid; place-items: center;
   flex: 0 0 auto;
   width: 30px; height: 30px;
@@ -1088,20 +1347,107 @@ strong { font-weight: 600; color: var(--cream); }
   color: var(--gold);
   transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
+/* Texto de la opción, con equivalencia opcional en una segunda línea */
+.foption-txt {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.35;
+}
+.foption-txt small {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--mute);
+  transition: color 0.3s var(--ease-out);
+}
 .foption:hover {
   border-color: rgba(211, 58, 34, 0.5);
   transform: translateX(6px);
 }
-.foption:hover span { border-color: var(--accent); }
+.foption:hover > span:first-child { border-color: var(--accent); }
+.foption.is-selected .foption-txt small { color: var(--cream-2); }
 .foption.is-selected {
   border-color: var(--accent);
   background: rgba(211, 58, 34, 0.09);
 }
-.foption.is-selected span {
+.foption.is-selected > span:first-child {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--cream);
 }
+
+/* =============================================================
+   19.5 Resultado del diagnóstico
+   ============================================================= */
+.fstep-result { padding-block: 5rem 7rem; align-items: start; }
+.res-inner { width: min(100%, 660px); justify-items: stretch; gap: 1.6rem; }
+.res-card { max-width: none; margin: 0; }
+.res-note {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(241, 234, 217, 0.08);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--cream-2);
+}
+/* Desglose por pilar */
+.res-pillars {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+.res-pillar {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  transition-delay: calc(var(--i) * 90ms + 300ms);
+}
+.res-pillars.is-in .res-pillar { opacity: 1; transform: none; }
+.res-pillar-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+.res-pillar-name {
+  font-size: 0.85rem;
+  color: var(--cream-2);
+}
+.res-pillar-pct {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.res-pillar-bar {
+  height: 4px;
+  border-radius: 99px;
+  background: rgba(241, 234, 217, 0.08);
+  overflow: clip;
+}
+.res-pillar-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 99px;
+  background: var(--gold);
+  transition: width 1.1s var(--ease-out);
+  transition-delay: calc(var(--i) * 90ms + 400ms);
+}
+/* El pilar más flojo se marca en rojo: es el que hay que atender */
+.res-pillar.is-weak .res-pillar-pct { color: var(--accent); }
+.res-pillar.is-weak .res-pillar-bar span { background: var(--accent); }
+.res-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+}
+.res-actions .btn-ghost { padding: 0.85rem 1.4rem; }
 
 .funnel-back {
   position: fixed;
@@ -1152,6 +1498,14 @@ strong { font-weight: 600; color: var(--cream); }
 /* Rendimiento móvil: fuera efectos de GPU costosos (blur gigante, grano, backdrop) */
 @media (max-width: 719px) {
   .hero-mesh, .funnel-mesh, .hero-grain { display: none; }
+  /* El aura y el barrido son caros de componer en móvil; el degradado
+     de la sección ya aporta la profundidad */
+  .diag-aura, .diag-scan { display: none; }
+  .diag-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .diag-card { background: rgba(26, 20, 15, 0.94); }
   /* En pantallas estrechas la foto ocupa la parte alta con plano abierto
      (se ven Luis y el celular) y se funde hacia el fondo oscuro */
   .hero-ph {
@@ -1173,7 +1527,6 @@ strong { font-weight: 600; color: var(--cream); }
 
 @media (min-width: 720px) {
   .cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-inner { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); }
   .footer-nav { justify-self: center; }
   .footer-contact { justify-self: end; }
@@ -1194,10 +1547,6 @@ strong { font-weight: 600; color: var(--cream); }
   .pillar p { margin-top: 0.3rem; }
 }
 
-@media (min-width: 1280px) {
-  .steps { gap: 1.4rem; }
-}
-
 /* =============================================================
    21. Reduced motion — only truly intrusive effects
    ============================================================= */
@@ -1206,5 +1555,12 @@ strong { font-weight: 600; color: var(--cream); }
   .hero-mesh, .funnel-mesh { animation: none; }
   .kicker-dot { animation: none; }
   .marquee-track { animation-duration: 70s; }
+  /* Bucles de fondo del diagnóstico (el contador y la barra se mantienen:
+     son informativos, no intrusivos) */
+  .diag-aura { animation: none; }
+  .diag-scan { display: none; }
+  .nav-links a.nav-hl::before { animation: none; }
+  .nav-hl-dot { animation: none; }
+  .diag-arrow { animation: none; }
   /* Micro-interactions (hover, reveals, brush, funnel steps) stay active */
 }

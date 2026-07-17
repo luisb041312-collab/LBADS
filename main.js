@@ -132,6 +132,22 @@
   }
 
   /* ------------------------------------------------------------
+     Brillo que sigue al cursor (sin inclinación) — solo escritorio
+     ------------------------------------------------------------ */
+  function initGlow() {
+    if (!fineHover) return;
+    $$("[data-glow]").forEach(el => {
+      if (el.dataset.glowBound) return;
+      el.dataset.glowBound = "1";
+      el.addEventListener("mousemove", e => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--hx", (((e.clientX - r.left) / r.width) * 100).toFixed(1) + "%");
+        el.style.setProperty("--hy", (((e.clientY - r.top) / r.height) * 100).toFixed(1) + "%");
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------
      Marquee — duplicate content for a seamless loop
      ------------------------------------------------------------ */
   function initMarquee() {
@@ -175,6 +191,7 @@
     safe(initAnchors, "initAnchors");
     safe(initReveals, "initReveals");
     safe(initTilt, "initTilt");
+    safe(initGlow, "initGlow");
     safe(initMarquee, "initMarquee");
     safe(initFaq, "initFaq");
     if (window.gsap && window.ScrollTrigger) {
