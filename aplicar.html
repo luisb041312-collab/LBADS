@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="styles.css?v=20260717" />
+  <link rel="stylesheet" href="styles.css?v=20261108f" />
   <noscript><style>.fstep { position: static; opacity: 1; visibility: visible; transform: none; grid-area: auto; }</style></noscript>
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 </head>
@@ -43,69 +43,82 @@
       </div>
     </section>
 
-    <!-- Paso 1 — Tipo de negocio -->
-    <section class="fstep" data-step="tipo">
-      <div class="fstep-inner">
-        <p class="fstep-q">1 → ¿Qué tipo de negocio tienes?</p>
-        <div class="foptions" role="group" aria-label="Tipo de negocio">
-          <button class="foption" data-value="Clínica estética"><span>A</span><span class="foption-txt">Clínica estética</span></button>
-          <button class="foption" data-value="Medicina estética"><span>B</span><span class="foption-txt">Medicina estética</span></button>
-          <button class="foption" data-value="E-commerce / Negocio online"><span>C</span><span class="foption-txt">E-commerce / Negocio online</span></button>
-          <button class="foption" data-value="Otro"><span>D</span><span class="foption-txt">Otro</span></button>
-        </div>
-      </div>
-    </section>
+    <!-- ===== Información del negocio ===== -->
 
-    <!-- Paso 2 — Valor promedio de venta -->
-    <section class="fstep" data-step="valor">
-      <div class="fstep-inner">
-        <p class="fstep-q">2 → ¿Cuál es el valor promedio de una venta?</p>
-        <div class="foptions" role="group" aria-label="Valor promedio de una venta">
-          <button class="foption" data-value="Menos de $500.000 COP (≈ USD $143)"><span>A</span><span class="foption-txt">Menos de $500.000 COP <small>≈ USD $143</small></span></button>
-          <button class="foption" data-value="$500.000 – $1.000.000 COP (≈ USD $143 – $286)"><span>B</span><span class="foption-txt">$500.000 – $1.000.000 COP <small>≈ USD $143 – $286</small></span></button>
-          <button class="foption" data-value="$1.000.000 – $3.000.000 COP (≈ USD $286 – $857)"><span>C</span><span class="foption-txt">$1.000.000 – $3.000.000 COP <small>≈ USD $286 – $857</small></span></button>
-          <button class="foption" data-value="Más de $3.000.000 COP (≈ USD $857+)"><span>D</span><span class="foption-txt">Más de $3.000.000 COP <small>≈ USD $857+</small></span></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Paso 3 — Presupuesto -->
-    <section class="fstep" data-step="presupuesto">
-      <div class="fstep-inner">
-        <p class="fstep-q">3 → ¿Cuál es el presupuesto mensual que estás dispuesto a invertir en Meta Ads?</p>
-        <p class="fstep-note">Solo la pauta publicitaria (lo que se paga a Meta). Mi tarifa de gestión la vemos en la llamada.</p>
-        <div class="foptions" role="group" aria-label="Presupuesto mensual en Meta Ads">
-          <button class="foption" data-value="$2.000.000 – $5.000.000 COP (≈ USD $571 – $1.429)"><span>A</span><span class="foption-txt">$2.000.000 – $5.000.000 COP <small>≈ USD $571 – $1.429</small></span></button>
-          <button class="foption" data-value="$5.000.000 – $10.000.000 COP (≈ USD $1.429 – $2.857)"><span>B</span><span class="foption-txt">$5.000.000 – $10.000.000 COP <small>≈ USD $1.429 – $2.857</small></span></button>
-          <button class="foption" data-value="Más de $10.000.000 COP (≈ USD $2.857+)"><span>C</span><span class="foption-txt">Más de $10.000.000 COP <small>≈ USD $2.857+</small></span></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Paso 4 — Quién responde -->
-    <section class="fstep" data-step="responde">
-      <div class="fstep-inner">
-        <p class="fstep-q">4 → ¿Quién responderá los pacientes o clientes potenciales que lleguen?</p>
-        <div class="foptions" role="group" aria-label="Quién responde a los clientes potenciales">
-          <button class="foption" data-value="Yo mismo"><span>A</span><span class="foption-txt">Yo mismo</span></button>
-          <button class="foption" data-value="Recepción / Equipo"><span>B</span><span class="foption-txt">Recepción / Equipo</span></button>
-          <button class="foption" data-value="Equipo comercial"><span>C</span><span class="foption-txt">Equipo comercial</span></button>
-          <button class="foption" data-value="Aún no tengo quién los atienda"><span>D</span><span class="foption-txt">Aún no tengo quién los atienda</span></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Paso 5 — Nombre -->
+    <!-- Paso 1 — Nombre -->
     <section class="fstep" data-step="nombre">
       <div class="fstep-inner">
-        <p class="fstep-q">5 → ¿Cómo te llamas?</p>
-        <input class="finput" type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+        <p class="fstep-q">1 → ¿Cuál es tu nombre completo?</p>
+        <input class="finput" type="text" name="nombre" placeholder="Nombre y apellido" autocomplete="name" required />
         <div class="fstep-actions">
           <button class="btn btn-primary" data-next>Continuar</button>
           <p class="fstep-hint">pulsa <kbd>Enter</kbd> ↵</p>
         </div>
       </div>
     </section>
+
+    <!-- Paso 2 — Tipo de negocio -->
+    <section class="fstep" data-step="tipo">
+      <div class="fstep-inner">
+        <p class="fstep-q">2 → ¿Qué tipo de negocio tienes?</p>
+        <div class="foptions" role="group" aria-label="Tipo de negocio">
+          <button class="foption" data-value="Marca de ropa o boutique"><span>A</span><span class="foption-txt">Marca de ropa o boutique</span></button>
+          <button class="foption" data-value="Joyería o accesorios"><span>B</span><span class="foption-txt">Joyería o accesorios</span></button>
+          <button class="foption" data-value="Cosmética o belleza"><span>C</span><span class="foption-txt">Cosmética o belleza</span></button>
+          <button class="foption" data-value="Otro tipo de negocio" data-other><span>D</span><span class="foption-txt">Otro tipo de negocio</span></button>
+        </div>
+        <!-- Solo aparece al elegir «Otro»: es obligatorio contar de qué es el negocio -->
+        <div class="fother" data-other-box hidden>
+          <label class="fstep-note" for="tipo_otro">¿De qué es tu negocio, específicamente?</label>
+          <input class="finput" id="tipo_otro" type="text" name="tipo_otro" placeholder="Ej.: tienda de zapatos, óptica, mueblería…" autocomplete="off" />
+          <div class="fstep-actions">
+            <button class="btn btn-primary" data-next>Continuar</button>
+            <p class="fstep-hint">pulsa <kbd>Enter</kbd> ↵</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 3 — Etapa del negocio -->
+    <section class="fstep" data-step="etapa">
+      <div class="fstep-inner">
+        <p class="fstep-q">3 → ¿En qué etapa se encuentra actualmente tu negocio?</p>
+        <div class="foptions" role="group" aria-label="Etapa del negocio">
+          <button class="foption" data-value="Estoy preparando mi negocio y todavía no he comenzado a vender"><span>A</span><span class="foption-txt">Estoy preparando mi negocio y todavía no he comenzado a vender</span></button>
+          <button class="foption" data-value="Estoy comenzando a vender, pero todavía no tengo ventas constantes"><span>B</span><span class="foption-txt">Estoy comenzando a vender, pero todavía no tengo ventas constantes</span></button>
+          <button class="foption" data-value="Ya tengo ventas constantes y quiero crecer"><span>C</span><span class="foption-txt">Ya tengo ventas constantes y quiero crecer</span></button>
+          <button class="foption" data-value="Tengo un negocio establecido y quiero escalarlo"><span>D</span><span class="foption-txt">Tengo un negocio establecido y quiero escalarlo</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 4 — Quién atiende -->
+    <section class="fstep" data-step="responde">
+      <div class="fstep-inner">
+        <p class="fstep-q">4 → ¿Quién se encarga actualmente de responder los mensajes y atender a tus potenciales compradores?</p>
+        <div class="foptions" role="group" aria-label="Quién atiende a los compradores">
+          <button class="foption" data-value="Tengo un equipo comercial encargado de atender y cerrar ventas"><span>A</span><span class="foption-txt">Tengo un equipo comercial encargado de atender y cerrar ventas</span></button>
+          <button class="foption" data-value="Tengo un asesor o vendedor encargado"><span>B</span><span class="foption-txt">Tengo un asesor o vendedor encargado</span></button>
+          <button class="foption" data-value="Yo mismo respondo y atiendo a los clientes"><span>C</span><span class="foption-txt">Yo mismo respondo y atiendo a los clientes</span></button>
+          <button class="foption" data-value="La persona encargada de redes sociales también responde los mensajes"><span>D</span><span class="foption-txt">La persona encargada de redes sociales también responde los mensajes</span></button>
+          <button class="foption" data-value="No tengo una persona encargada de manera fija"><span>E</span><span class="foption-txt">No tengo una persona encargada de manera fija</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 5 — Presupuesto (FILTRO: «No» no puede agendar) -->
+    <section class="fstep" data-step="presupuesto">
+      <div class="fstep-inner">
+        <p class="fstep-q">5 → ¿Cuentas con un presupuesto mensual de entre $3.000.000 y $4.000.000 COP para invertir en el crecimiento de tu negocio?</p>
+        <p class="fstep-note">Este presupuesto nos permite cubrir nuestros servicios y la inversión publicitaria necesaria para implementar la estrategia, probar diferentes anuncios y optimizar las campañas de manera continua.</p>
+        <div class="foptions" role="group" aria-label="Presupuesto mensual">
+          <button class="foption" data-value="Sí, cuento con ese presupuesto o más"><span>A</span><span class="foption-txt">Sí, cuento con ese presupuesto o más</span></button>
+          <button class="foption" data-value="No, por el momento no cuento con ese presupuesto" data-reject><span>B</span><span class="foption-txt">No, por el momento no cuento con ese presupuesto</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Datos de contacto ===== -->
 
     <!-- Paso 6 — Correo -->
     <section class="fstep" data-step="email">
@@ -122,7 +135,7 @@
     <!-- Paso 7 — WhatsApp -->
     <section class="fstep" data-step="whatsapp">
       <div class="fstep-inner">
-        <p class="fstep-q">7 → ¿Cuál es tu WhatsApp?</p>
+        <p class="fstep-q">7 → ¿Cuál es tu número de WhatsApp?</p>
         <input class="finput" type="tel" name="whatsapp" placeholder="+57 300 123 4567" autocomplete="tel" required />
         <div class="fstep-actions">
           <button class="btn btn-primary" data-next>Continuar</button>
@@ -142,6 +155,21 @@
         <div class="fsummary" data-summary aria-label="Resumen de tus respuestas"></div>
         <a class="btn btn-primary btn-lg" data-calendly href="#" target="_blank" rel="noopener">Agendar mi llamada con Luis</a>
         <p class="fstep-hint">Se abre tu calendario de reservas (Calendly)</p>
+        <button class="fback-inline" type="button" data-back-inline>← Corregir mis respuestas</button>
+      </div>
+    </section>
+
+    <!-- Fuera del filtro — respondió «No» en la pregunta 5. Sin enlace a Calendly. -->
+    <section class="fstep" data-step="nofit">
+      <div class="fstep-inner">
+        <p class="kicker"><span class="kicker-dot"></span>Gracias por tu sinceridad</p>
+        <h2 class="fstep-title">Todavía no es el momento, <em data-nofit-name>por ahora</em>.</h2>
+        <p class="fstep-sub">Para que la estrategia funcione necesitamos una inversión mensual de entre $3.000.000 y $4.000.000 COP, entre nuestros servicios y la pauta. Con menos, no podríamos probar anuncios ni optimizar como tu negocio necesita, y no queremos prometerte resultados que no podemos cumplir.</p>
+        <p class="fstep-sub">Cuando cuentes con ese presupuesto, vuelve a aplicar. Mientras tanto, el diagnóstico gratuito te dice qué ajustar en tu negocio para estar listo.</p>
+        <div class="fstep-actions">
+          <a class="btn btn-primary" href="diagnostico.html">Hacer el diagnóstico gratis</a>
+          <a class="fstep-hint" href="./">Volver al inicio</a>
+        </div>
       </div>
     </section>
 
@@ -149,7 +177,7 @@
     <button class="funnel-back" data-back aria-label="Pregunta anterior" hidden>← Anterior</button>
   </main>
 
-  <script defer src="lib/manifest.js?v=20260717"></script>
-  <script defer src="funnel.js?v=20260717"></script>
+  <script defer src="lib/manifest.js?v=20261108"></script>
+  <script defer src="funnel.js?v=20261108e"></script>
 </body>
 </html>

@@ -536,7 +536,7 @@ strong { font-weight: 600; color: var(--cream); }
 .section-title em { font-style: italic; color: var(--gold); }
 
 /* Single-column grids: never let content max-width inflate the track */
-.cards-3, .pillars, .proof-grid, .faq,
+.proof-grid, .faq,
 .footer-inner, .personal-copy, .fstep-inner, .foptions, .cta-inner {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -552,78 +552,147 @@ strong { font-weight: 600; color: var(--cream); }
 .reveal[data-split] { opacity: 1; transform: none; }
 
 /* =============================================================
-   10. Cards (Para quién)
+   10. Para quién — lista de nichos + collage de fotos reales
    ============================================================= */
-.cards-3 {
+.who-grid {
   display: grid;
-  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.6rem, 6vw, 4rem);
+  align-items: center;
 }
-.card {
-  position: relative;
-  padding: 2.4rem 2rem 2.6rem;
-  background: var(--bg-3);
-  border: 1px solid var(--line);
-  border-radius: 18px;
+.who-copy .section-head { margin-bottom: clamp(1.8rem, 4vw, 2.6rem); }
+.who-list {
+  list-style: none;
+  margin: 0; padding: 0;
   display: grid;
-  gap: 1rem;
-  transition: transform 0.5s var(--ease-out), border-color 0.5s var(--ease-out),
-              box-shadow 0.5s var(--ease-out);
-  transform-style: preserve-3d;
-}
-.card:hover {
-  border-color: rgba(211, 58, 34, 0.45);
-  box-shadow: 0 24px 60px -28px rgba(211, 58, 34, 0.35);
-}
-.card::after {
-  content: "";
-  position: absolute; inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(360px circle at var(--hx, 50%) var(--hy, 50%), rgba(211, 58, 34, 0.09), transparent 65%);
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-out);
-  pointer-events: none;
-}
-.card:hover::after { opacity: 1; }
-.card-icon {
-  width: 54px; height: 54px;
-  color: var(--accent);
-}
-.card-icon svg { width: 100%; height: 100%; }
-.card h3 {
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  font-weight: 600;
-}
-.card p { color: var(--cream-2); font-size: 0.98rem; }
-
-/* =============================================================
-   12. Pillars (Servicios)
-   ============================================================= */
-.pillars {
-  display: grid;
-  gap: 0;
   border-top: 1px solid var(--line);
 }
-.pillar {
+.who-item {
   display: grid;
-  gap: 0.8rem;
-  padding: 2.4rem 0.4rem;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+  padding: 1.6rem 0.2rem;
   border-bottom: 1px solid var(--line);
   transition: padding-left 0.5s var(--ease-out), background 0.5s var(--ease-out);
 }
-.pillar:hover { padding-left: 1.2rem; background: rgba(241, 234, 217, 0.02); }
-.pillar-num {
+.who-item:hover { padding-left: 0.9rem; background: rgba(241, 234, 217, 0.02); }
+.who-icon { width: 44px; height: 44px; color: var(--accent); }
+.who-icon svg { width: 100%; height: 100%; }
+.who-item h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+.who-item p { color: var(--cream-2); font-size: 0.98rem; }
+
+.who-collage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+  aspect-ratio: 1 / 1.08;
+  width: 100%;
+  max-width: 560px;
+  justify-self: center;
+}
+.who-ph {
+  position: relative;
+  margin: 0;
+  border-radius: 18px;
+  overflow: clip;
+  border: 1px solid var(--line);
+  background: var(--bg-3);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+}
+.who-ph img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: sepia(0.1) saturate(0.95) contrast(1.05) brightness(0.95);
+  transition: transform 0.9s var(--ease-out), filter 0.6s var(--ease-out);
+}
+.who-ph:hover img { transform: scale(1.05); filter: sepia(0.04) saturate(1) contrast(1.05) brightness(1); }
+.who-ph--a { grid-column: 1 / 9;  grid-row: 1 / 13; z-index: 1; }
+.who-ph--a img { object-position: 40% 40%; }
+.who-ph--b { grid-column: 7 / 13; grid-row: 1 / 7;  z-index: 2; margin: 8% 0 4% 0; outline: 6px solid var(--bg); }
+.who-ph--c { grid-column: 7 / 13; grid-row: 7 / 13; z-index: 2; margin: 4% 0 8% 0; outline: 6px solid var(--bg); }
+.who-ph--c img { object-position: 50% 60%; }
+.who-tag {
+  position: absolute; z-index: 3;
+  left: 1rem; bottom: 1rem;
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(13, 10, 8, 0.78);
+  border: 1px solid var(--line);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream-2);
+  max-width: calc(66% - 1.5rem);
+}
+
+/* =============================================================
+   12. Servicios — bento con imágenes
+   ============================================================= */
+.bento {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.2rem;
+}
+.bento-tile {
+  position: relative;
+  min-height: 400px;
+  border-radius: 18px;
+  overflow: clip;
+  border: 1px solid var(--line);
+  background: var(--bg-3);
+  display: flex;
+  align-items: flex-end;
+  isolation: isolate;
+  transition: border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+.bento-tile:hover {
+  border-color: rgba(211, 58, 34, 0.45);
+  box-shadow: 0 24px 60px -28px rgba(211, 58, 34, 0.35);
+}
+.bento-tile img {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: sepia(0.1) saturate(0.92) contrast(1.05) brightness(0.9);
+  transition: transform 1s var(--ease-out), filter 0.6s var(--ease-out);
+}
+.bento-tile:hover img { transform: scale(1.04); filter: sepia(0.04) saturate(1) contrast(1.05) brightness(0.98); }
+.bento-tile::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(13, 10, 8, 0.1) 0%, rgba(13, 10, 8, 0.5) 38%, rgba(13, 10, 8, 0.96) 78%);
+  pointer-events: none;
+}
+.bento-body {
+  display: grid;
+  gap: 0.6rem;
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+}
+.bento-num {
   font-family: var(--display);
   font-size: 1rem;
   letter-spacing: 0.2em;
   color: var(--accent);
 }
-.pillar h3 {
+.bento-tile h3 {
   font-family: var(--serif);
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
   font-weight: 600;
+  color: var(--cream);
 }
-.pillar p { color: var(--cream-2); max-width: 52rem; }
+.bento-tile p { color: var(--cream-2); font-size: 0.98rem; max-width: 34rem; }
+.bento-tile--lg { min-height: 460px; }
+.bento-tile--lg::after { background: linear-gradient(180deg, rgba(13, 10, 8, 0) 0%, rgba(13, 10, 8, 0.2) 45%, rgba(13, 10, 8, 0.95) 88%); }
+.bento-tile--lg h3 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); }
 
 /* =============================================================
    13. Personal (No soy una agencia)
@@ -1109,12 +1178,13 @@ strong { font-weight: 600; color: var(--cream); }
 .cta-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: 50% 50%;
   filter: saturate(1.1);
 }
 .cta-tint {
   position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(180deg, var(--bg) 0%, rgba(13,10,8,0.72) 30%, rgba(13,10,8,0.72) 70%, var(--bg) 100%),
+    linear-gradient(180deg, var(--bg) 0%, rgba(13,10,8,0.62) 28%, rgba(13,10,8,0.66) 72%, var(--bg) 100%),
     radial-gradient(60% 50% at 50% 50%, rgba(211,58,34,0.14) 0%, transparent 70%);
 }
 .cta-inner {
@@ -1296,6 +1366,9 @@ strong { font-weight: 600; color: var(--cream); }
   font-size: 0.75rem;
 }
 .fstep-actions { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+/* En el paso final el «Anterior» fijo tapaba el texto: ahí va como enlace dentro del paso */
+.fback-inline { background: none; border: 0; padding: 0; color: var(--mute); font: inherit; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; justify-self: start; }
+.fback-inline:hover { color: var(--cream); }
 
 .finput {
   width: 100%;
@@ -1319,6 +1392,10 @@ strong { font-weight: 600; color: var(--cream); }
 }
 
 .foptions { display: grid; gap: 0.8rem; width: 100%; }
+/* Campo «¿De qué es tu negocio?» que aparece al elegir «Otro» */
+.fother { display: grid; gap: 1.1rem; width: 100%; margin-top: 0.6rem; }
+.fother[hidden] { display: none; }
+.fother .fstep-note { margin-top: 0; color: var(--cream-2); }
 .foption {
   display: flex;
   align-items: center;
@@ -1514,6 +1591,17 @@ strong { font-weight: 600; color: var(--cream); }
     -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
     mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
   }
+  /* El texto largo del CTA del diagnóstico se salía por los lados: aquí
+     puede partir en dos líneas y nunca supera el ancho de la pantalla */
+  .diag-cta .btn-lg {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    padding-inline: 1.5rem;
+    line-height: 1.3;
+  }
+  /* Foto del CTA final: en pantallas estrechas se enfoca en la persona de la izquierda */
+  .cta-bg img { object-position: 18% 50%; }
   .nav.is-solid {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -1526,7 +1614,6 @@ strong { font-weight: 600; color: var(--cream); }
 }
 
 @media (min-width: 720px) {
-  .cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .footer-inner { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); }
   .footer-nav { justify-self: center; }
   .footer-contact { justify-self: end; }
@@ -1539,12 +1626,13 @@ strong { font-weight: 600; color: var(--cream); }
   .menu-mobile { display: none; }
   .personal-grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 4.5rem; }
   .proof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; }
-  .pillar {
-    grid-template-columns: 110px 320px 1fr;
-    align-items: start;
-    gap: 2rem;
+  .who-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4.5rem; }
+  .bento {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(330px, auto));
   }
-  .pillar p { margin-top: 0.3rem; }
+  .bento-tile { min-height: 0; }
+  .bento-tile--lg { grid-row: 1 / 3; min-height: 640px; }
 }
 
 /* =============================================================
